@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
     build: {
     chunkSizeWarningLimit: 1500, // increase from default 500
   },
+  base: './', // ✅ This is the fix (important!)
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
