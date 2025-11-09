@@ -26,7 +26,7 @@ const translations = {
     
     // About
     'about.title': 'About Me',
-    'about.description': 'Motivated Full-Stack Developer specializing in modern web and mobile applications. Experienced in frontend and backend technologies. Passionate about developing efficient and high-quality digital solutions.',
+    'about.description': 'a Full Stack Developer and UI/UX Designer passionate about building modern, responsive, and scalable web applications . I work with technologies like HTML, CSS, JavaScript, TypeScript, React (JS/TS), Next.js, Node.js, Express.js, MySQL, and MongoDB. With expertise in both front-end and back-end development, I create seamless digital experiences from intuitive user interfaces to powerful server-side solutions',
     'about.location': 'Based in Agadir, Morocco',
     'about.languages': 'Languages: English, French, German (basic), Arabic',
     
@@ -95,7 +95,7 @@ const translations = {
     
     // About
     'about.title': 'À Propos de Moi',
-    'about.description': 'Développeur Full-Stack motivé, spécialisé dans les applications web et mobiles modernes. Expérimenté en technologies frontend et backend. Passionné par le développement de solutions numériques efficaces et de haute qualité.',
+    'about.description': 'a Full Stack Developer and UI/UX Designer passionate about building modern, responsive, and scalable web applications . I work with technologies like HTML, CSS, JavaScript, TypeScript, React (JS/TS), Next.js, Node.js, Express.js, MySQL, and MongoDB. With expertise in both front-end and back-end development, I create seamless digital experiences from intuitive user interfaces to powerful server-side solutions',
     'about.location': 'Basé à Agadir, Maroc',
     'about.languages': 'Langues : Anglais, Français, Allemand (basique), Arabe',
     

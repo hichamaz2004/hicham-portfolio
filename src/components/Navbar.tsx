@@ -17,9 +17,9 @@ const Navbar = () => {
   ];
 
   const languages = [
-    { code: 'en' as const, label: 'EN' },
-    { code: 'fr' as const, label: 'FR' },
-    { code: 'de' as const, label: 'DE' },
+    { code: 'en' as const, label: '🇬🇧' },
+    { code: 'fr' as const, label: '🇫🇷' },
+    { code: 'de' as const, label: '🇩🇪' },
   ];
 
   return (
@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="text-2xl font-bold text-primary glow-text">
-            HA
+            HICHAM AZAANOUNE
           </a>
 
           {/* Desktop Navigation */}
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            
+
             <div className="flex items-center gap-2 ml-4">
               {languages.map((lang) => (
                 <button
@@ -82,7 +82,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <div className="flex items-center gap-2 pt-4 border-t border-glass-border">
+            <div className="flex items-center gap-3 pt-4 border-t border-glass-border justify-center">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
