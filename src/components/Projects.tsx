@@ -1,63 +1,146 @@
 import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { motion } from 'framer-motion';
+
+import kcwebsite from '@/assets/herowebsitekc.png';
+import kclp from '@/assets/kclp.png';
+// import aichatbot from '@/assets/aichatbot.png';
 
 const Projects = () => {
   const { t } = useLanguage();
 
   const projects = [
     {
-      title: t('projects.tawjeeh.title'),
-      description: t('projects.tawjeeh.description'),
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop',
+      title: 'KC Media Agency – Official Website',
+      description:
+        'A modern agency website built with React, TailwindCSS, and animations — designed to showcase marketing and branding services with a professional aesthetic.',
+      image: kcwebsite,
+      link: 'https://kcmediaagency.com/',
+      tech: ['React', 'Tailwind CSS', 'Framer Motion'],
     },
     {
-      title: t('projects.ecommerce.title'),
-      description: t('projects.ecommerce.description'),
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
+      title: 'KC Media Offers – Landing Page',
+      description:
+        'A high-converting landing page promoting KC Media services, optimized for lead generation with sleek UI and strong visuals.',
+      image: kclp,
+      link: 'https://kcmediaoffers.com/',
+      tech: ['Next.js', 'ShadCN UI', 'Responsive Design'],
     },
     {
-      title: t('projects.portfolio.title'),
-      description: t('projects.portfolio.description'),
-      image: 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=500&h=300&fit=crop',
+      title: 'AI WhatsApp Chatbot Platform',
+      description:
+        'A smart chatbot system connected to WhatsApp that uses AI to reply automatically to messages, manage leads, and boost client engagement.',
+      // image: aichatbot,
+      link: '#',
+      tech: ['Node.js', 'OpenAI API', 'MongoDB', 'Twilio'],
     },
   ];
 
+  // 🔹 Animation Variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const card = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  };
+
   return (
-    <section id="projects" className="py-20 px-4 bg-secondary/30">
+    <section
+      id="projects"
+      className="py-20 px-4 bg-gradient-to-br from-secondary/20 via-background to-primary/5 overflow-hidden"
+    >
       <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+        {/* ✨ Animated Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-bold text-center mb-16"
+        >
           {t('projects.title')}
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        </motion.h2>
+
+        {/* 🧩 Project Grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="glass-card rounded-xl border border-glass-border overflow-hidden hover:border-primary transition-all duration-300 group"
+              variants={card}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+              className="glass-card rounded-2xl border border-glass-border overflow-hidden hover:border-primary hover:shadow-[0_0_25px_rgba(0,255,150,0.15)] transition-all duration-500 group flex flex-col"
             >
-              <div className="relative overflow-hidden h-48">
-                <img
+              {/* 🖼️ Project Image */}
+              <div className="relative overflow-hidden h-52 sm:h-56">
+                <motion.img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  whileHover={{ scale: 1.1 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-70" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+
+              {/* 🧾 Project Info */}
+              <div className="flex flex-col flex-grow p-6 space-y-3">
+                <motion.h3
+                  variants={card}
+                  className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors"
+                >
                   {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4">
+                </motion.h3>
+
+                <motion.p
+                  variants={card}
+                  className="text-muted-foreground text-sm leading-relaxed flex-grow"
+                >
                   {project.description}
-                </p>
-                <button className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300">
+                </motion.p>
+
+                {/* 🧠 Tech badges */}
+                <motion.div
+                  variants={container}
+                  className="flex flex-wrap gap-2 mt-2"
+                >
+                  {project.tech.map((tech, i) => (
+                    <motion.span
+                      key={i}
+                      whileHover={{ scale: 1.1 }}
+                      className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </motion.div>
+
+                {/* 🔗 Button */}
+                <motion.a
+                  whileHover={{ x: 4 }}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary mt-4 font-medium hover:gap-3 transition-all duration-300"
+                >
                   <span>View Project</span>
                   <ExternalLink className="h-4 w-4" />
-                </button>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
