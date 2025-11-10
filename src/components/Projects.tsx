@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import kcwebsite from '@/assets/herowebsitekc.png';
 import kclp from '@/assets/kclp.png';
-// import aichatbot from '@/assets/aichatbot.png';
+import memorabrand from '@/assets/memora.png';
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -26,13 +26,13 @@ const Projects = () => {
       link: 'https://kcmediaoffers.com/',
       tech: ['Next.js', 'ShadCN UI', 'Responsive Design'],
     },
-    {
-      title: 'AI WhatsApp Chatbot Platform',
+   {
+      title: 'Website for Memora Brand',
       description:
-        'A smart chatbot system connected to WhatsApp that uses AI to reply automatically to messages, manage leads, and boost client engagement.',
-      // image: aichatbot,
-      link: '#',
-      tech: ['Node.js', 'OpenAI API', 'MongoDB', 'Twilio'],
+        'An elegant WordPress e-commerce website built for Memora Brand, presenting premium natural supplements that enhance memory, energy, and overall well-being. Designed with a clean aesthetic, smooth navigation, and strong brand identity to deliver a refined shopping experience.',
+      image: memorabrand,
+      link: 'https://memorabrand.com/',
+      tech: ['WordPress', 'Elementor', 'WooCommerce', 'CSS'],
     },
   ];
 
