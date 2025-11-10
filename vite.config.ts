@@ -3,18 +3,16 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
   },
-
-    build: {
-    chunkSizeWarningLimit: 1500, // increase from default 500
+  build: {
+    outDir: "dist", // ✅ ensures Vercel finds built files
+    chunkSizeWarningLimit: 1500,
   },
-
-  base: './', // ✅ This is the fix (important!)
+  base: "./", // ✅ required for assets on Vercel
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
